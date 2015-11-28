@@ -12,9 +12,9 @@ public class SayiTahminOyunu {
 
         int bulunmasiGerekenSayi;
         int tahminSayisi, tahminEtmeSayaci = 1;
-        Scanner okuyucu = new Scanner(System.in);        
+        Scanner okuyucu = new Scanner(System.in);
         Random rnd = new Random();
-        
+
         //random olarak 0-100 arası sayı üretip rastSayi adlı değişkenimize atıyoruz
         bulunmasiGerekenSayi = rnd.nextInt(100);
 
@@ -35,7 +35,7 @@ public class SayiTahminOyunu {
             if (tahminEdilenSayi == bulunmasiGerekenSayi) {
                 System.out.println("Tebrikler sayıyı " + tahminEtmeSayaci + ". tahminde buldunuz ... ");
                 oyunaDevam = false;
-            //yapmış olduğumuz tahmin sayisi bulmak istediğimmiz tahmin sayısından fazla oyunu bitiriyoruz
+                //yapmış olduğumuz tahmin sayisi bulmak istediğimmiz tahmin sayısından fazla ise oyunu bitiriyoruz
             } else if (tahminEtmeSayaci > tahminSayisi - 1) {
                 System.out.println("Oyunu kaybettiniz, bulmanız gereken sayı " + bulunmasiGerekenSayi + " idi.");
                 oyunaDevam = false;
@@ -45,7 +45,7 @@ public class SayiTahminOyunu {
             } else if (tahminEdilenSayi < bulunmasiGerekenSayi) {
                 System.out.println("Daha büyük bir sayı giriniz :");
             }
-            
+
             tahminEtmeSayaci++;
 
         }
