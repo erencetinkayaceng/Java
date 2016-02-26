@@ -1,4 +1,4 @@
-// Metindeki harf sayisi örneği
+﻿// Metindeki harf sayisi örneği
 // Konsoldan girilen bir metnin içinde geçen harflerin sayısını bulur.
 // Hangi harften kaçtane var ise çıktı verir 
 // Not:Büyük-küçük ayrımı yapılmaz
@@ -30,7 +30,7 @@ public class MetindekiHarfSayisi {
         //cümleden harf dışındaki karakterleri çıkarıyoruz
         for (int i = 0; i < cumle.length(); i++) {
             char ch=cumle.charAt(i);
-            if (ch < 'A' && ch > 'Z') {
+            if (ch < 'A' || ch > 'Z') {
                 continue;
             }
             geciciCumle += cumle.charAt(i);
