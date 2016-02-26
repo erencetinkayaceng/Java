@@ -1,8 +1,8 @@
-﻿// Metindeki harf sayisi örneği
+// Metindeki harf sayısı örneği
 // Konsoldan girilen bir metnin içinde geçen harflerin sayısını bulur.
 // Hangi harften kaçtane var ise çıktı verir 
-// Not:Büyük-küçük ayrımı yapılmaz
 
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -22,18 +22,18 @@ public class MetindekiHarfSayisi {
 
         Scanner sc = new Scanner(System.in);
         String cumle = "", geciciCumle = "";
-
+        String trCh="çÇöÖğĞüÜşŞıI";
         System.out.println("Bir cümle giriniz...");
         cumle = sc.nextLine();
-        cumle=cumle.toUpperCase(); 
         
         //cümleden harf dışındaki karakterleri çıkarıyoruz
         for (int i = 0; i < cumle.length(); i++) {
             char ch=cumle.charAt(i);
-            if (ch < 'A' || ch > 'Z') {
-                continue;
-            }
-            geciciCumle += cumle.charAt(i);
+            int kontrol = trCh.indexOf((char)ch);// türkçe karakter kontrolü yapıyoruz
+           
+            if (ch >= 'A' && ch <= 'Z' || ch >= 'a' && ch <='z' ||  kontrol != (-1)) {
+               geciciCumle += cumle.charAt(i);
+            }            
         }
 
         return geciciCumle;
@@ -41,7 +41,6 @@ public class MetindekiHarfSayisi {
 
     public static int kacFarkliHarfVarKontrolEt(String cumle) {
         int farkliElemanSayisi = 0;
-        cumle = cumle.toUpperCase();
 
         //Dizi icerisinde aynı elemanı barındırmaz		
         TreeSet ts = new TreeSet();
@@ -109,7 +108,7 @@ public class MetindekiHarfSayisi {
     public static void main(String[] args) {
         Harf harfDizisi[] = null;
         String cumlemiz = "";
-
+        
         cumlemiz = cumleyiAl();
 
         harfDizisi = harfSay(cumlemiz);
